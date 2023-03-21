@@ -21,6 +21,7 @@ requirements:
     - flit-core 3.8.0
     - python
     - wheel
+    - setuptools
   run:
     - python
 
