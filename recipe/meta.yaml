@@ -11,17 +11,18 @@ source:
   sha256: 77ce7f2737ebabf9c0ff73b4a99c947876d74d24c2f026544e32246ecca5feca
 
 build:
-  number: 1
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  skip: True  # [py<37]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
     - pip
-    - flit-core >=3.7,<4
-    - python >=3.7
+    - flit-core 3.8.0
+    - python
+    - wheel
   run:
-    - python >=3.7
+    - python
 
 test:
   imports:
@@ -32,7 +33,7 @@ test:
     - pip
 
 about:
-  home: https://pypi.org/project/lazy_loader/
+  home: https://scientific-python.org/specs/spec-0001/
   summary: Easily load subpackages and functions on demand
   dev_url: https://github.com/scientific-python/lazy-loader
   license: BSD-3-Clause
