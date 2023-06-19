@@ -1,5 +1,5 @@
 {% set name = "lazy_loader" %}
-{% set version = "0.1" %}
+{% set version = "0.2" %}
 
 
 package:
@@ -7,21 +7,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/lazy_loader-{{ version }}.tar.gz
-  sha256: 77ce7f2737ebabf9c0ff73b4a99c947876d74d24c2f026544e32246ecca5feca
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|lower }}-{{ version }}.tar.gz
+  sha256: 0edc7a5175c400acb108f283749951fefdadedeb00adcec6e88b974a9254f18a
 
 build:
   number: 0
   skip: True  # [py<37]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 requirements:
   host:
     - pip
-    - flit-core 3.8.0
     - python
     - wheel
     - setuptools
+    - flit-core 3.8.0
   run:
     - python
 
@@ -39,14 +38,13 @@ about:
   dev_url: https://github.com/scientific-python/lazy-loader
   license: BSD-3-Clause
   license_file: LICENSE.md
+  license_family: BSD
   description: |
     `lazy-loader` makes it easy to load subpackages and functions on demand.
 
     PyPI: [https://pypi.org/project/lazy_loader/](https://pypi.org/project/lazy_loader/)
 
   doc_url: https://github.com/scientific-python/lazy_loader
-  dev_url: https://github.com/scientific-python/lazy_loader
-
 extra:
   recipe-maintainers:
     - sugatoray
