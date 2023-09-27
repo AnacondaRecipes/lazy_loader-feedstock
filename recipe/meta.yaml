@@ -1,5 +1,5 @@
 {% set name = "lazy_loader" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|lower }}-{{ version }}.tar.gz
-  sha256: 0edc7a5175c400acb108f283749951fefdadedeb00adcec6e88b974a9254f18a
+  sha256: 3b68898e34f5b2a29daaaac172c6555512d0f32074f147e2254e4a6d9d838f37
 
 build:
   number: 0
@@ -18,9 +18,7 @@ requirements:
   host:
     - pip
     - python
-    - wheel
-    - setuptools
-    - flit-core 3.8.0
+    - flit-core >=3.8,<4
   run:
     - python
 
@@ -43,7 +41,6 @@ about:
     `lazy-loader` makes it easy to load subpackages and functions on demand.
 
     PyPI: [https://pypi.org/project/lazy_loader/](https://pypi.org/project/lazy_loader/)
-
   doc_url: https://github.com/scientific-python/lazy_loader
 extra:
   recipe-maintainers:
