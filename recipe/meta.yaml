@@ -11,18 +11,17 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<37]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
+    - setuptools >=61.2
     - wheel
   run:
     - python
-    - importlib_metadata  # [py<38]
     - packaging
 
 test:
@@ -30,7 +29,7 @@ test:
     - lazy_loader
   requires:
     - pip
-    - pytest
+    - pytest >=8.0
   commands:
     - pip check
     - pytest --pyargs lazy_loader
