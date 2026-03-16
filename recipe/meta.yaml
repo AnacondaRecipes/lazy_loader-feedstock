@@ -25,6 +25,8 @@ requirements:
     - packaging
 
 test:
+  source_files:
+    - tests
   imports:
     - lazy_loader
   requires:
@@ -32,10 +34,10 @@ test:
     - pytest >=8.0
   commands:
     - pip check
-    - pytest --pyargs lazy_loader
+    - pytest -v tests
 
 about:
-  home: https://scientific-python.org/specs/spec-0001/
+  home: https://scientific-python.org/specs/spec-0001
   summary: Easily load subpackages and functions on demand
   dev_url: https://github.com/scientific-python/lazy_loader
   license: BSD-3-Clause
